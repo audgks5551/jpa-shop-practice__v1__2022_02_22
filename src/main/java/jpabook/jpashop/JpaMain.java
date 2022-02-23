@@ -1,8 +1,8 @@
 package jpabook.jpashop;
 
 
-import jpabook.jpashop.domain.Order;
-import jpabook.jpashop.domain.OrderItem;
+import jpabook.jpashop.domain.Book;
+import jpabook.jpashop.domain.Item;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -22,11 +22,10 @@ public class JpaMain {
 
         try {
 
-            Order order = new Order();
-            order.addOrderItem(new OrderItem());
-
-            em.persist(order);
-
+            Book book = new Book();
+            book.setName("JPA");
+            book.setAuthor("김영한");
+            em.persist(book);
 
             tx.commit(); // 1. 영속성컨텍스트 -> 데이터베이스 2. 영속성컨텍스트 비우기
         } catch (Exception e) {
